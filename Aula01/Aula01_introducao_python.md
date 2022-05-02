@@ -134,12 +134,20 @@ Com ela podemos passar parâmetro de qualquer itpo, além de ser extremamente ú
 
 Em Python existem várias funções para manipular Strings. Na tabela abaixo são apresentados os principais métodos.
 
+![Manipulação de Strings](img/manipulacao_string_01.jpg)
+![Manipulação de Strings](img/manipulacao_string_02.jpg)
 
+### Fatiamento de Strings
 
+O fatiamento de strings é uma ferramenta usada para extrair apenas uma parte dos elementos de uma string.
 
+**Nome_String[limie_inferior : Limite_superior]**
 
+Retorna uma string com os elementos das posições do limite_inferior até o limite_superior.
 
+Exemplo:
 
+![Fatiamento de Strings](img/fatiamento.jpg)
 
 ## Operadores Aritméticos
 
@@ -152,6 +160,64 @@ Em Python existem várias funções para manipular Strings. Na tabela abaixo sã
 ## Operadores Lógicos
 
 ![Operadores Lógicos](img/operadores_logicos.jpg)
+
+## Estrutura de Decisão
+
+As estruturas de decisão permitem alterar o curso dofluxo de execução de um programa, de acordo com o valor (veradeiro/falso) de um teste lógico.
+
+Em Python temos:
+
+**if (se)**
+
+**if..else (se .. senão)**
+
+**if .. elif .. else (se .. senão se .. senão)**
+
+### Estrutra if
+
+O comando **if** é utilizado quando precisamos decidir se um trecho do programa deve ou não ser executado. Ele é associado a uma condição, e o trecho de código será executado se o valor da condição for verdadeiro.
+
+![Estutura if](img/if.jpg)
+
+### Estrutra if..else
+
+Na estrutura **if .. else** um trecho de código será executado se a condição for verdadeira e o outro se a condição for falsa.
+
+
+![Estutura if else](img/if_else.jpg)
+
+### Estrutra if..elif..else
+
+Se houver diversas condições, cada uma associada a um trecho de código, utiliza-se o **if .. elif .. else**.
+
+![Estutura if..elif else](img/if_elif_else01.jpg)
+
+![Estutura if..elif else](img/if_elif_else02.jpg)
+
+## Estruturas de Repetição
+
+A Estrutura de repetição é utilizada para executar uma mesma sequência de comandos várias vezes. A repetição está associada ou a uma condição, que indica se deve continuar ou não a repetição, ou a uma sequência de valores, que determina quantas vezes a sequência deve ser repetida. As estruturas de repetição são conhecidas também como laços (loops).
+
+### Laço While (Pré-condição)
+
+No laço while, o trecho de código da repetição está associado a uma condição. Enquanto a condição tiver valor verdadeiro, o trecho é executado. Quando a condição passa a ter valor falso, a repetição termina.
+
+![while](img/while01.jpg)
+
+![while](while02.jpg)
+
+### Laço For (contador)
+
+O laço for é a estrutura de repetição mais utilizada em Python. Pode ser utilizado com uma sequência numérica (gerada com o comando range) ou associado a uma lista. O trecho de código da repetição é executado para cada valor da sequência numérica ou da lista.
+
+![For](img/for.jpg)
+
+
+
+
+
+
+
 
 
 
