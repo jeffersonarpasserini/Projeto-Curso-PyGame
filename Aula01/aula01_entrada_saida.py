@@ -40,3 +40,10 @@ numero_pto_flutuante = 300.565656789
 print("numero ponto flutuante : {:.2f}".format(numero_pto_flutuante))
 
 
+L = [3 , 'abacate' , 9.7 , [5 , 6 , 3] , "Python" , (3 , 'j')]
+
+print(L[2])
+
+print(L[3])
+
+print(L[3][1])

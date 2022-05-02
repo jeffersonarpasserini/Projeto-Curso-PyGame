@@ -149,6 +149,58 @@ Exemplo:
 
 ![Fatiamento de Strings](img/fatiamento.jpg)
 
+## Listas
+
+Lista é um conjunto sequencial de valores, onde cada valor é identificado através de um índice. O primeiro valor tem índice 0. Uma lista em Python é declarada da seguinte forma:
+
+**Nome_Lista = [ valor1, valor2, ..., valorN]**
+
+Uma lista pode ter valores de qualquer tipo, incluindo outras listas.
+
+![Listas](img/Lista01.jpg)
+
+Para alterar um elemento da lista, basta fazer uma atribuição de valor através do índice. O valor existente será substituído pelo novo valor.
+
+![Listas](img/Lista02.jpg)
+
+A tentativa de acesso a um índice inexistente resultará em erro.
+
+![Listas](img/Lista03.jpg)
+
+### Funções para manipulação de listas
+
+A lista é uma estrutura mutável, ou seja, ela pode ser modificada. Na tabela a seguir estão algumas funções utilizadas para manipular listas.
+
+![Listas](img/ListaOpe.jpg)
+
+### Operações com listas
+
+**Concatenação (+)**
+
+![Listas](img/ListaConcat.jpg)
+
+**Repetição (*)**
+
+![Listas](img/ListaRepet.jpg)
+
+### Fatiamento de Listas
+
+O fatiamento de listas é semelhante ao fatiamento de strings.
+
+![Listas](img/ListaFatiam.jpg)
+
+### Criação de listas com range()
+
+A função range() define um intervalo de valores inteiros. Associada a list(), cria uma lista com os valores do intervalo.
+
+A função range() pode ter de 1 a 3 parâmetros:
+
+* range(n) - gera um intervalo de 0 a n-1
+* range(i , n) - gera um intervalo de i a n-1
+* range(i , n, p) - gera um intervalo de i a n-1 com intervalo p entre os números
+
+![Listas](img/range.jpg)
+
 ## Operadores Aritméticos
 
 ![Operadores Aritméticos](img/operadores_aritmeticos.jpg)
@@ -204,7 +256,7 @@ No laço while, o trecho de código da repetição está associado a uma condiç
 
 ![while](img/while01.jpg)
 
-![while](while02.jpg)
+![while](img/while02.jpg)
 
 ### Laço For (contador)
 
@@ -212,18 +264,54 @@ O laço for é a estrutura de repetição mais utilizada em Python. Pode ser uti
 
 ![For](img/for.jpg)
 
+## Funções
 
+Funções são pequenos trechos de código reutilizáveis. Elas permitem dar um nome a um bloco de comandos e executar esse bloco, a partir de qualquer lugar do programa.
 
+### Como definir uma função
 
+Funções são definidas usando a palavra-chave **def**, conforme sintaxe a seguir:
 
+![Funcao](img/funcao_def.jpg)
 
+Obs.: A definição dos parâmetros é opcional.
 
+![Funcao](img/funcao_ex01.jpg)
 
+### Parâmetros e argumentos
 
+Parâmetros são as variáveis que podem ser incluídas nos parênteses das funções. Quando a função é chamada são passados valores para essas variáveis. Esses valores são chamados argumentos. O corpo da função pode utilizar essas variáveis, cujos valores podem modificar o
+comportamento da função.
 
+![Funcao](img/funcao_ex02.jpg)
 
+### Escopo das variáveis
 
+Toda variável utilizada dentro de uma função tem escopo local, isto é, ela não será acessível por outras funções ou pelo programa principal. Se houver variável com o mesmo nome fora da função, será uma outra variável, completamente independentes entre si.
 
+![Funcao](img/funcao_escopovar.jpg)
+
+Para uma variável ser compartilhada entre diversas funções e o programa principal, ela deve ser definida como variável global. Para isto, utiliza-se a instrução global para declarar a variável em todas as funções para as quais ela deva estar acessível. O mesmo vale para o programa principal. 
+
+![Funcao](img/funcao_escopovar01.jpg)
+
+### Retorno de valores
+
+O comando return é usado para retornar um valor de uma função e encerrá-la. Caso não seja declarado um valor de retorno, a função retorna o valor **None** (que significa nada, sem valor).
+
+![Funcao](img/funcao_retornovar.jpg)
+
+Observações:
+
+a. O valor da variável total, calculado na função soma, retornou da função e foi atribuído à variável s.
+
+b. O comando após o return foi ignorado.
+
+### Valor Padrão
+
+É possível definir um valor padrão para os parâmetros da função. Neste caso, quando o valor é omitido na chamada da função, a variável assume o valor padrão.
+
+![Funcao](img/funcao_opcional.jpg)
 
 
 
