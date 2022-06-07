@@ -97,4 +97,190 @@ Também não podemos de esquecer de atualizrmos nosso main com as funções agor
 
 Execute seu código e verifique se sua bolinha ganhou movimento. Você pode obserar que sim mas temos que estabelecer limites e a interação com a movimentação dos jogadores durante a partida.
 
+## Movimentação do Jogador1
+
+Para a movimentação do jogador temos que tornar dinamica a atualização da posição da imagem do Jogador1 na função de desenho(), para isso vamos cirar a variável jogador1_y valendo 310 que é a posição inicial de nosso jogador.
+
+Vamos criar também duas variáveis de controle para verificar se a direção da movimentação é para cima (jogador1_moveup) ou se é para baixo (jogador1_movedown) ambas variaveis iniciam valendo False para que o jogador não se movimente sem o pressionamento do teclado por parte do usuário.
+
+Crie o código como baixo:
+
+![jogadores e bola 2](img/img12.jpg)
+
+Agora atualize o desenho do jogador na tela, para isso atualize a posição indicada:
+
+![jogadores e bola 2](img/img13.jpg)
+
+Agora vamos criar uma função para controlar a movimentação do jogador. Essa função será a função movimenta_jogador().
+
+![jogadores e bola 2](img/img14.jpg)
+
+Na função moivmenta_jogador() podemos observar que sua função é atualizar a posição do jogador na tela a partir da variavel jogador1_y e também verificar se o movimento desejado é para cima ou para baixo.
+
+E agora vamos atualizar no main de nosso programa a captura de teclas.
+Vamos verificar o pressionamento das teclas w e s, quando o usuário pressionar a tecla w alteramos o valor da variavel de controle jogador1_moveup para True se o usuário pressionar a tecla s alteramos para True  a variavel jogador1_movedown.
+
+Muito bom só que temos que saber também se o usuário está realmente pressionando a tecla w ou s ou deixou de pressiona-las.
+Isso pode ser verificado com  o comando pygame.KEYDOWN (verifica se uma tecla esta sendo pressionada) ou o pygame.KEYUP (verifica se uma tecla deixou de ser pressionada).
+
+Assim se pressionaos a tecla w a variavel jogador1_moveup fica True e se deixarmos de pressionar a tecla w ela retorna ao status False. O mesmo ocorre quando pressionarmos a tecla s.
+
+Atualize o seu código com a parte grifada:
+
+![jogadores e bola 2](img/img15.jpg)
+
+Atualize o código para fazer a chamada da função que realiza o movimento do jogador. Como demonstrado na imagem abaixo:
+
+![jogadores e bola 2](img/img16.jpg)
+
+## Estabelecendo limites de movimentação dos jogadores
+
+Para estabelecer um limite para o nosso jogador temos que definir até qual posição X e Y dentro de nossa tela ele pode navegar.
+
+Assim vamos atualizar a função movimenta_jogador() com a parte grifada.
+
+![jogadores e bola 2](img/img17.jpg)
+
+Observamos na imagem que a posição do jogador1 não pode ser menor que zero, assim como não pode ser maior que 575.
+
+Teste o seu programa.
+
+## Tratamento da colisão da bola com o jogador
+
+Para controlarmos a direção e a velocidade de bolinha do jogo vamos criar uma variavel bola_direcao valendo -2, assim quando o valor desta variavel for negativo a bolinha vai se movimentar para a esquerda e se for positivo para a direita da área de jogo.
+
+Crie a variavel como demonstrado abaixo.
+
+![jogadores e bola 2](img/img18.jpg)
+
+Agora vamos alterar nossa função movimenta_bola()  adicionando o controle de direção e de colisão da bola com o jogador.
+
+Altere seu código como abaixo:
+
+![jogadores e bola 2](img/img19.jpg)
+
+Na linha 34 e 35 atualizamos a posição da bola a partir da variavel bola_direcao, somando ou subtraindo posições da variavel bola_x que vai definir a posição da bolinha na tela.
+
+Nas linhas de 37 a 40 temos a verificação de colisão da bolinha com o jogador1.
+Então se a bolinha estiver numa posição menor que 120 que é a posição inicial do jogador1 e se também pelo menos metade da bola (bola_y+23) for menor que a posição atual do jogador e se ainda a posição do jogador considerando o seu tamanho (jogador_y+146) for maior que a posição atual da bolinha acontece a colisão dos dois elementos no jogo.
+
+Ocorrendo a colisão vamos multiplicar a variavel bola_direcao por -1 invertendo a direção da bolinha.
+
+## Verificando a colisão com o Jogador2
+
+Vamos criar a variavel de controle de posição do jogador2 como demonstrado na linha 17, se você quiser deixar mais dinamico o jogo pode também aumentar a velocidade da bolinha como na linha 22.
+
+![jogadores e bola 2](img/img20.jpg)
+
+Agroa na função movimenta_bola() implemente o controle de colisão para o jogador2, como nas linhas 42 a 45.
+
+![jogadores e bola 2](img/img21.jpg)
+
+## Melhorando o movimento da bola
+
+Como você já percebeu nossa bola neste momento só se movimento em linha reta, e isso é muito chato para um jogo.
+
+Vamos então permitir que o jogador altere a direção da bola, para isso vamos criar a variavel bola_direcao_y valendo 1 como demonstrado na linha 23.
+
+![jogadores e bola 2](img/img22.jpg)
+
+Agora vamos na função movimenta_bola() para implementarmos a mudança de direção, importe a variavel bola_direcao_y para a função como realizado na linha 36 e depois atribua através de uma soma o valor desta variavel a variavel bola_y que determina a posição da bola na tela, como demonstrado na linha 39 da imagem abaixo.
+
+![jogadores e bola 2](img/img23.jpg)
+
+Agora execute seu programa e verifique como ficou o movimento da bolinha do jogo. Observe que temos um outro problema pois a bolinha sai fora do campo pelas laterais, então temos que impor limites para a movimentação da bolinha.
+
+## Limitando o movimento da bola
+
+Implemente o código grifado na imagem abaixo na função movimenta_bola() para impor os limites do campo a bola de modo que ela rebata na lateral e mude de direção.
+
+![jogadores e bola 2](img/img24.jpg)
+
+## Fazendo o Jogador2 seguir o movimento da bola
+
+Para darmos movimento ao jogador2 vamos implementar uma nova função em nosso programa, a função movimenta_jogador2().
+Essa função fará a posição do jogador2 (variavel jogador2_y) acompanhar a posição da bola (variavel bola_y).
+Implmente a função como demonstrado na imagem abaixo.
+
+![jogadores e bola 2](img/img25.jpg)
+
+Devemos também incluir a nova função para ser chamada dentro de nosso While. Faça como demonstrado.
+
+![jogadores e bola 2](img/img26.jpg)
+
+Teste novamente o seu programa.
+
+## Reposicionando a bola no centro do campo
+
+Quando a bola sair pelo fundo do campo vamos reposicionar no centro do campo novamente para isso altere novamente a função movimenta_bola() e inclua o código conforme demonstrado abaixo.
+
+![jogadores e bola 2](img/img27.jpg)
+
+Com isso nossa bola ira ser coloca novamente no centro do campo e tera a direção invertida.
+
+## Implementando o placar do jogo
+
+Para criarmos o placar do jogo vamos implementar as variaveis de controle de pontuação e das imagens do placar.
+Implemente os códigos como demonstrato na imagem abaixo.
+
+![jogadores e bola 2](img/img28.jpg)
+
+Na função movimenta_bola faça a importação das variaveis criadas anteriormente.
+
+![jogadores e bola 2](img/img29.jpg)
+
+E ainda na função movimenta_bola() no trecho de código que valida a saida da bola pelo fundo do campo implemente a contagem da pontuação do placar e também da atualização da imagem que aparece no placar.
+
+Implemente o código como demonstrado nas linhas 72 e 73 onde se a bola sair a esquerda o Jogador2 pontua, e se sair a direita o Jogador1 pontua como implementado nas linhas 79 e 80.
+
+![jogadores e bola 2](img/img30.jpg)
+
+## Definindo o Vencedor
+
+O vencedor será o que marcar 9 pontos primeiro, deste modo quando isto acontecer iremos exibir uma mensagem de parabéns ao vencedor.
+
+Vamos implementar as variaveis de controle para isso, faça como demonstrado na imagem abaixo.
+
+![jogadores e bola 2](img/img31.jpg)
+
+Então altere a função desenho() para que fique como demonstrado abaixo.
+
+![jogadores e bola 2](img/img32.jpg)
+
+Deste modo enquando os placares 1 e 2 forem menores que 9 a tela do jogo continua sendo exibida, se algum dos placares for maior que nove a tela de congratulação será exibida.
+
+Só que se deixarmos deste modo ocasionará um erro porque no background a bolinha continua se movimentando.
+
+O erro pode ser vista abaixo.
+
+![jogadores e bola 2](img/img33.jpg)
+
+Para corrigirmos isso vamos recortar as linhas selecionadas no main de nosso progroma.
+
+![jogadores e bola 2](img/img34.jpg)
+
+Deixando deta forma:
+
+![jogadores e bola 2](img/img35.jpg)
+
+E colarmos na função desenha() como demonstrado abaixo.
+
+![jogadores e bola 2](img/img36.jpg)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
